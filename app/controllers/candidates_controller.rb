@@ -18,7 +18,7 @@ class CandidatesController < ApplicationController
       flash[:notic] = "新增成功!!!!!!!!!!!!" 
       redirect_to '/candidates'
     else
-      #NG
+      render :new
     end
 
   end
