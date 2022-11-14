@@ -10,9 +10,12 @@ class CandidatesController < ApplicationController
 
   def create
     # debugger
-    @candidate = Candidate.new(clean_params)
-
+    # clean_params = params.require(:candidate).permit(:name , :party , :age , :politics)
+    
+    @candidate = Candidate.new(candidates_params)
+ 
     if @candidate.save
+      flash[:notic] = "新增成功!!!!!!!!!!!!" 
       redirect_to '/candidates'
     else
       #NG
@@ -20,10 +23,10 @@ class CandidatesController < ApplicationController
 
   end
 
-  # private
-  # def clean_params
-  # params[:candidate].require(:candidate).permit(:name , :party , :age , :politics)
-  # end
+  private
+  def candidates_params
+  clean_params = params.require(:candidate).permit(:name , :party , :age , :politics)
+  end
 
 
 
