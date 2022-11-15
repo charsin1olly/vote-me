@@ -1,6 +1,8 @@
 class CandidatesController < ApplicationController
 
   def index
+    @candidates = Candidate.all
+    # @candidate = @candidates.params[ id: [@candidate.id] ]
   end
 
   def new
@@ -22,6 +24,10 @@ class CandidatesController < ApplicationController
     end
 
   end
+
+  # def show
+  # end
+
 
   private
   def candidates_params

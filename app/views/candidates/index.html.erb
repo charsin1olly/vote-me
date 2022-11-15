@@ -2,3 +2,15 @@
 
 <%= flash[:notic] %><br>
 <%= link_to '新增候選人' , 'candidates/new' %>
+
+<table>
+
+<% @candidates.each do |candidate|%>
+<tr>
+  <td><%= link_to candidate.name , candidate_path(candidate.id) %></td>
+  <td><%= candidate.party %></td>
+  <td><%= candidate.age %></td>
+  <td>Action</td>
+</tr>
+<% end %>
+</table>
