@@ -2,7 +2,7 @@ class CandidatesController < ApplicationController
 
   def index
     @candidates = Candidate.all
-    # @candidate = @candidates.params[ id: [@candidate.id] ]
+    
   end
 
   def new
@@ -25,9 +25,15 @@ class CandidatesController < ApplicationController
 
   end
 
-  # def show
-  # end
+  def show
+   Candidate.find(params[:id])
+  end
 
+  def edit
+  end
+
+  def update
+  end
 
   private
   def candidates_params

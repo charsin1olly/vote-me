@@ -4,13 +4,19 @@
 <%= link_to '新增候選人' , 'candidates/new' %>
 
 <table>
-
+<tr>
+  <td>name</td>
+  <td>party</td>
+  <td>age</td>
+  <td>Action</td>
+</tr>
 <% @candidates.each do |candidate|%>
 <tr>
-  <td><%= link_to candidate.name , candidate_path(candidate.id) %></td>
+  <td><%= link_to candidate.name , candidate_path(candidate) %></td>
   <td><%= candidate.party %></td>
   <td><%= candidate.age %></td>
-  <td>Action</td>
+  <td><%= link_to "編輯" , edit_candidate_path(candidate) %></td>
+  <td><%= link_to "刪除" , candidate_path(candidate),method:"delete",data{confitm:"確定嗎？"} %></td>
 </tr>
 <% end %>
 </table>
